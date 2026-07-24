@@ -1,0 +1,7 @@
+# Ignore python virtual environments or cache
+**/__pycache__/
+*.pyc
+
+# Ignore the generated datasets in this directory
+data/*.csv
+
