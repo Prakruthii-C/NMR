@@ -28,19 +28,24 @@ if __name__=="__main__":
         has_peak2 = np.random.choice([0, 1])
         has_peak3 = np.random.choice([0, 1])
         
+        proton_scale=0.18
+
+        # aliphatic methyl grp 
         if has_peak1:
             peak1_pos = np.random.uniform(1.1, 1.3)
-            amp1 = np.random.uniform(0.8, 1.2)
+            amp1 = 3 * proton_scale * np.random.uniform(0.9,1.1) # protons * scale * random fluctuation
             current_peaks.append((peak1_pos, 0.05, amp1))
-            
+
+        # aliphatic methylene grp    
         if has_peak2:
-            peak2_pos = np.random.uniform(3.4, 3.6)
-            amp2 = np.random.uniform(0.5, 0.8)
+            peak2_pos = np.random.uniform(1.4,1.7)
+            amp2 = 2 * proton_scale * np.random.uniform(0.9,1.1)
             current_peaks.append((peak2_pos, 0.08, amp2))
-            
+
+        # aromatic grp- monosubstituted ring    
         if has_peak3:
             peak3_pos = np.random.uniform(7.0, 7.4)
-            amp3 = np.random.uniform(0.3, 0.6)
+            amp3 = 5 * proton_scale * np.random.uniform(0.9,1.1)
             current_peaks.append((peak3_pos, 0.12, amp3))
 
         intensity=generate_mock_spectrum(current_peaks)
